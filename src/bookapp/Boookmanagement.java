@@ -2,6 +2,8 @@ package bookapp;
 
 import java.util.*;
 
+import chapter06.exercise.p20.Account;
+
 
 
 public class Boookmanagement {
@@ -35,29 +37,45 @@ public class Boookmanagement {
 		System.out.println("프로그램 종료");
 	}
 
+	private static void rentalBook() {
+		System.out.println("--------");
+		System.out.println("도서대여");
+		System.out.println("--------");
+		System.out.print("도서명> ");
+		String rental;
+		
+		for (Book book : booklist) {
+			rental = scanner.next();
+			if (book.getTitle().equals(rental)) {
+				System.out.println(book.getTitle() + "\t"+ book.getWriter() +"\t"+ book.getGenre() + "대여");
+				booklist.remove(book);
+			} 
+			
+			
+		} 
+		
+	}
+	
+
 	private static void bookList() {
 		System.out.println("--------");
 		System.out.println("도서현황");
 		System.out.println("--------");
-		
-		for (int i = 0; i < booklist.size(); i++) {
-			String title = booklist.getTitle(i);
-			
-			System.out.println(i);
-		}
+		System.out.println("총 " + booklist.size() + "권");
+		for (Book book : booklist) {
+	         String title = book.getTitle();
+	         String writer = book.getWriter();
+	         int genre = book.getGenre();
+	         System.out.println("제목: " + title +"  "+ "저자: " + writer + "  "+ genre );
+	  }
 	}
 		
 
 	private static void returnBook() {
-		// TODO Auto-generated method stub
 		
 	}
-
-	private static void rentalBook() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
+	
 	private static void addBook() {
 		
 		System.out.println("--------");
@@ -80,7 +98,7 @@ public class Boookmanagement {
 		System.out.println("등록성공!");
 		
 	 }
-		
+	 
 }
 		
 

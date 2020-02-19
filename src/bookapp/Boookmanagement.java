@@ -2,9 +2,6 @@ package bookapp;
 
 import java.util.*;
 
-import chapter06.exercise.p20.Account;
-
-
 
 public class Boookmanagement {
 	private static List<Book> booklist = new ArrayList<>();
@@ -49,7 +46,9 @@ public class Boookmanagement {
 			if (book.getTitle().equals(rental)) {
 				System.out.println(book.getTitle() + "\t"+ book.getWriter() +"\t"+ book.getGenre() + "대여");
 				booklist.remove(book);
-			} 
+			} else {
+				continue;
+			}
 			
 			
 		} 

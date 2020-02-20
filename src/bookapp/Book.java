@@ -5,13 +5,13 @@ public class Book {
 	private String title;
 	private String writer;
 	private int genre;
-	boolean isAvailable;
+	String isAvailable;
 	
 	public Book (String title, String writer, int genre) {
 		this.title = title;
 		this.writer = writer;
 		this.genre = genre;
-		this.isAvailable = true;
+		this.isAvailable = "대여가능";
 	}
 	
 	public String getTitle() {

@@ -41,14 +41,15 @@ public class Boookmanagement {
 		System.out.print("도서명> ");
 		String rental;
 		
-		for (Book book : booklist) {	
-			if (book.isAvailable.equals("대여중")) {
+		for (int book = 0; book < booklist.size(); book++) {
+			Book findbook = booklist.get(book);
+			rental = scanner.next();
+			if (findbook.isAvailable.equals("대여중")) {
 				System.out.println("대여중 입니다.");
 			} 
-			rental = scanner.next();
-			if (book.getTitle().equals(rental)) {
-					book.isAvailable = "대여중";
-					System.out.println("제목: "+ book.getTitle()+ "\n" +"저자: " +book.getWriter() +"\n"+ "대여완료!!");
+			if (findbook.getTitle().equals(rental)) {
+				findbook.isAvailable = "대여중";
+					System.out.println("제목: "+ findbook.getTitle()+ "\n" +"저자: " +findbook.getWriter() +"\n"+ "대여완료!!");
 				}
 			}
 		}

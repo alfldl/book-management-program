@@ -8,6 +8,12 @@ public class Boookmanagement {
 	private static Scanner scanner = new Scanner(System.in);
 	
 	public static void main(String[] args) {
+		
+		for (int i = 0; i < 10; i++) {
+			Book book = new Book("책" + i, "저자" + i, 1);
+			booklist.add(book);
+		}
+		
 		boolean run = true;
 		
 		while(run) {
@@ -38,22 +44,23 @@ public class Boookmanagement {
 		System.out.println("--------");
 		System.out.println("도서대여");
 		System.out.println("--------");
-		System.out.print("도서명> ");
-		String rental;
+		System.out.print("책 제목 검색> ");
+		String bookName = scanner.next();
 		
-		for (int book = 0; book < booklist.size(); book++) {
-			Book findbook = booklist.get(book);
-			rental = scanner.next();
-			if (findbook.isAvailable.equals("대여중")) {
-				System.out.println("대여중 입니다.");
-			} 
-			if (findbook.getTitle().equals(rental)) {
-				findbook.isAvailable = "대여중";
-					System.out.println("제목: "+ findbook.getTitle()+ "\n" +"저자: " +findbook.getWriter() +"\n"+ "대여완료!!");
+		for (Book book : booklist) {
+			if (book.getTitle().equals(bookName)) {
+				if (book.getIsAvailable().equals("대여중")) {
+					System.out.println("대여중입니다.");
+					break;
 				}
+				book.setIsAvailable("대여중");
+				System.out.println(book.getTitle() + "이 대여되었습니다.");
+				return;
 			}
+			
 		}
 		
+	}	
 	
 	
 
@@ -66,7 +73,7 @@ public class Boookmanagement {
 	         String title = book.getTitle();
 	         String writer = book.getWriter();
 	         int genre = book.getGenre();
-	         String status = book.isAvailable;
+	         String status = book.getIsAvailable();
 	        
 	         System.out.println("제목: " + title +"  "+ "저자: " + writer + "  "+ genre +" "+ status );
 	  }

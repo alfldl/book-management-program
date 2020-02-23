@@ -5,7 +5,7 @@ public class Book {
 	private String title;
 	private String writer;
 	private int genre;
-	String isAvailable;
+	private String isAvailable;
 	
 	public Book (String title, String writer, int genre) {
 		this.title = title;
@@ -32,4 +32,13 @@ public class Book {
 	public void setGenre(int genre) {
 		this.genre = genre;
 	}
+
+	public String getIsAvailable() {
+		return isAvailable;
+	}
+
+	public void setIsAvailable(String isAvailable) {
+		this.isAvailable = isAvailable;
+	}
+	
 }

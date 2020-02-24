@@ -81,8 +81,25 @@ public class Boookmanagement {
 		
 
 	private static void returnBook() {
+		System.out.println("--------");
+		System.out.println("도서 반납");
+		System.out.println("--------");
+		System.out.println(	"반납할 도서명 >");
+		String bookName = scanner.next();
+
+		for (Book book : booklist) {
+			if (book.getTitle().equals(bookName)) {
+				book.setIsAvailable("대여 가능");
+				System.out.println(book.getTitle() + "이 반납되었습니다.");
+				return;
+			} 
+			
+		}
 		
-	}
+	}	
+	
+	
+		
 	
 	
 	private static void addBook() {
